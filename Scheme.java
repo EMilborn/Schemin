@@ -17,6 +17,8 @@ HW24 -- Schemin
 
 public class Scheme {
 
+    private static final String _OPS = "+-*";
+
     /****************************************************** 
      * precond:  Assumes expr is a valid Scheme (prefix) expression,
      *           with whitespace separating all operators, parens, and 
@@ -28,8 +30,15 @@ public class Scheme {
      ******************************************************/
     public static String evaluate( String expr ) 
     {
+	if (isNumber(expr))
+	    return expr;
 	
-	return "";
+        Stack<String> tmpStack = new LLStack<String>();
+	
+	// loop which starts at back and adds evaluate(term) 
+	//where term is either int or parenthese'd new expression
+
+	return unload (indexOf(expr.charAt(2).toString()) + 1, tmpStack);
     }//end evaluate()
 
 
