@@ -54,12 +54,12 @@ public class Scheme {
 	    }
 	    
 	    else
-		toEvaluate += c;
+		toEvaluate = c + toEvaluate;
 	    
 	    index-=1; 
 	}
 
-	return unload (_OPS.indexOf(expr.charAt(2).toString()) + 1, tmpStack);
+	return unload (_OPS.indexOf(expr.substring(2,3)) + 1, tmpStack);
     }//end evaluate()
 
 
@@ -103,7 +103,7 @@ public class Scheme {
 
     //main method for testing
     public static void main( String[] args ) {
-	/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+	
 	String zoo1 = "( + 4 3 )";
 	System.out.println(zoo1);
 	System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
@@ -123,7 +123,8 @@ public class Scheme {
 	System.out.println(zoo4);
 	System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
 	//...-4
-          ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
+	/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+	  ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
     }//main
 
 }//end class Scheme
