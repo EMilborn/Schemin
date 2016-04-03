@@ -35,10 +35,31 @@ public class Scheme {
 	
         Stack<String> tmpStack = new LLStack<String>();
 	
-	// loop which starts at back and adds evaluate(term) 
-	//where term is either int or parenthese'd new expression
+	int parens = 0;
+	int index = expr.length() - 3;
+	String toEvaluate = "";
+	
+	while (index > 2){
+	    char c = expr.charAt(index);
+	    
+	    if (c == ')')
+		parens += 1;
 
-	return unload (indexOf(expr.charAt(2).toString()) + 1, tmpStack);
+	    else if (c == '(')
+		parens -= 1;
+	    
+	    if (parens == 0 && c == ' '){
+		tmpStack.push(evaluate(toEvaluate));
+		toEvaluate = "";
+	    }
+	    
+	    else
+		toEvaluate += c;
+	    
+	    index-=1; 
+	}
+
+	return unload (_OPS.indexOf(expr.charAt(2).toString()) + 1, tmpStack);
     }//end evaluate()
 
 
