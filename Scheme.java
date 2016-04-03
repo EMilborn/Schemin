@@ -1,7 +1,7 @@
-/* Team ??? -- Elias Milborn, Anna Tolen
+/* Team confused? -- Elias Milborn, Anna Tolen
 APCS2 pd9
 HW24 -- Schemin
-2016-04-02 */
+2016-04-04 */
 /*****************************************************
  * class Scheme
  * Simulates a rudimentary Scheme interpreter
@@ -28,6 +28,7 @@ public class Scheme {
      ******************************************************/
     public static String evaluate( String expr ) 
     {
+	
 	return "";
     }//end evaluate()
 
@@ -42,6 +43,7 @@ public class Scheme {
     {
 	int ans = Integer.parseInt(numbers.pop()); //starting val
 	while( !numbers.isEmpty() ) {
+	    
 	    if( op == 1 )
 		ans += Integer.parseInt(numbers.pop());
 	    else if( op == 2 ) 
@@ -54,7 +56,7 @@ public class Scheme {
     }//end unload()
 
 
-    /*
+    
     //optional check-to-see-if-its-a-number helper fxn:
     public static boolean isNumber( String s ) {
         try {
@@ -65,6 +67,7 @@ public class Scheme {
 	    return false;
 	}
     }
+    /*
     */
 
 
