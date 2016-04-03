@@ -1,3 +1,7 @@
+/* Team ??? -- Elias Milborn, Anna Tolen
+APCS2 pd9
+HW24 -- Schemin
+2016-04-02 */
 /*****************************************************
  * class Scheme
  * Simulates a rudimentary Scheme interpreter
@@ -24,6 +28,7 @@ public class Scheme {
      ******************************************************/
     public static String evaluate( String expr ) 
     {
+	return "";
     }//end evaluate()
 
 
@@ -35,6 +40,17 @@ public class Scheme {
      ******************************************************/
     public static String unload( int op, Stack<String> numbers ) 
     {
+	int ans = Integer.parseInt(numbers.pop()); //starting val
+	while( !numbers.isEmpty() ) {
+	    if( op == 1 )
+		ans += Integer.parseInt(numbers.pop());
+	    else if( op == 2 ) 
+		ans -= Integer.parseInt(numbers.pop());
+	    else if( op == 3 )
+		ans *= Integer.parseInt(numbers.pop());
+	}
+	
+	return Integer.toString(ans);
     }//end unload()
 
 
@@ -54,20 +70,22 @@ public class Scheme {
 
     //main method for testing
     public static void main( String[] args ) {
-
 	/*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 	String zoo1 = "( + 4 3 )";
 	System.out.println(zoo1);
 	System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
 	//...7
+
 	String zoo2 = "( + 4 ( * 2 5 ) 3 )";
 	System.out.println(zoo2);
 	System.out.println("zoo2 eval'd: " + evaluate(zoo2) );
 	//...17
+
 	String zoo3 = "( + 4 ( * 2 5 ) 6 3 ( - 56 50 ) )";
 	System.out.println(zoo3);
 	System.out.println("zoo3 eval'd: " + evaluate(zoo3) );
 	//...29
+
 	String zoo4 = "( - 1 2 3 )";
 	System.out.println(zoo4);
 	System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
